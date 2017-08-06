@@ -1,0 +1,11 @@
+<button type="button" class="btn btn-default" aria-label="Left Align">
+  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+</button>
+
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact
+</button>
+
+<% @contacts.each do |contact| %>
+  <p><%= contact.first_name %></p>
+<% end %> 

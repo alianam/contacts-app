@@ -1,0 +1,8 @@
+<!-- the URL after form tag is where it goes after the post, not where the form lives -->
+<%= form_tag "/add_contact" , method: :post do%>
+  <p>First Name <input type="text" name="first_name"></p>
+  <p>Last Name <input type="text" name="last_name"></p>
+  <p>Email <input type="text" name="email"></p>
+  <p>Phone Number <input type="text" name="phone_number"></p>
+  <p><input type="submit" name="Add New Contact"></p>
+<% end %>
