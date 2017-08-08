@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact1 = Contact.find_by(id: params[:id])
+    @contact = Contact.find_by(id: params[:id])
     render 'show.html.erb'
   end
 
@@ -38,5 +38,11 @@ class ContactsController < ApplicationController
       phone_number: params["phone_number"]
     )
     render 'update.html.erb'
+  end
+
+  def destroy
+    @contact = Contact.find_by(id: params[:id])
+    @contact.destroy
+    render 'destroy.html.erb'
   end
 end
