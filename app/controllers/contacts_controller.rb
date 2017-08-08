@@ -1,17 +1,42 @@
 class ContactsController < ApplicationController
-  def contact1
+  def index
     @contacts = Contact.all
-    # @contact1 = Contact.first
-    render 'contact1.html.erb'
+    render 'index.html.erb'
   end
 
-  def new_contact_form
-    render 'new_contact_form.html.erb'
+  def new
+    render 'new.html.erb'
   end
 
-  def add_contact
-    @new_contact = Contact.new({first_name: params["first_name"], last_name: params["last_name"], email: params["email"], phone_number: params["phone_number"]})
+  def create
+    @new_contact = Contact.new(
+      first_name: params["first_name"],
+      last_name: params["last_name"],
+      email: params["email"],
+      phone_number: params["phone_number"]
+      )
     @new_contact.save
-    render 'contact_added.html.erb'
+    render 'create.html.erb'
+  end
+
+  def show
+    @contact1 = Contact.find_by(id: params[:id])
+    render 'show.html.erb'
+  end
+
+  def edit
+    @contact = Contact.find_by(id: params[:id])
+    render 'edit.html.erb'
+  end
+
+  def update
+    @contact = Contact.find_by(id: params[:id])
+    @contact.update(
+      first_name: params["first_name"],
+      last_name: params["last_name"],
+      email: params["email"],
+      phone_number: params["phone_number"]
+    )
+    render 'update.html.erb'
   end
 end
