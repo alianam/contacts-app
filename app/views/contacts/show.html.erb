@@ -5,6 +5,10 @@
 <p><%= @contact.email%></p>
 <p><%= @contact.phone_number%></p>
 
+<%= form_tag "/contacts/#{@contact.id}/edit", method: :get do %>
+  <input type="submit" value="Edit Contact">
+<% end %>
+<hr>
 <%= form_tag "/contacts/#{@contact.id}", method: :delete do %>
   <input type="submit" value="Remove Contact">
 <% end %>

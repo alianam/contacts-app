@@ -13,3 +13,7 @@
   <p><%= contact.phone_number %></p>
   <hr>
 <% end %> 
+
+<%= form_tag "/contacts/new", method: :get do %>
+  <input type="submit" value="Create New Contact">
+<% end %>
