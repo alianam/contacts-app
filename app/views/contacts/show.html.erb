@@ -1,9 +1,12 @@
 <h1><%= @contact.first_name%></h1>
 
-<p><%= @contact.first_name%></p>
-<p><%= @contact.last_name%></p>
-<p><%= @contact.email%></p>
-<p><%= @contact.phone_number%></p>
+<p><strong>Full Name: </strong><%= @contact.full_name %></p>
+<p><strong>Email: </strong><%= @contact.email%></p>
+<p><strong>Phone Number: </strong><%= @contact.japanese_country_code%></p>
+
+<p><strong>Contact Last Edited: </strong><%= @contact.display_updated_time %></p>
+
+<br>
 
 <%= form_tag "/contacts/#{@contact.id}/edit", method: :get do %>
   <input type="submit" value="Edit Contact">

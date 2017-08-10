@@ -45,4 +45,12 @@ class ContactsController < ApplicationController
     @contact.destroy
     redirect_to "/contacts/"
   end
+
+  def johns
+    @contacts = Contact.all
+    @johns = @contacts.each do |contact|
+      contact.all_johns
+    end
+    render 'johns.html.erb'
+  end
 end
