@@ -2,8 +2,10 @@
 <h3>Create a new contact</h3>
 <%= form_tag "/contacts", method: :post do%>
   <p>First Name <input type="text" name="first_name"></p>
+  <p>Middle Name <input type="text" name="middle_name"></p>
   <p>Last Name <input type="text" name="last_name"></p>
   <p>Email <input type="text" name="email"></p>
   <p>Phone Number <input type="text" name="phone_number"></p>
+  <p>Bio <input type="text" name="bio"></p>
   <p><input type="submit" name="Add New Contact"></p>
 <% end %>
