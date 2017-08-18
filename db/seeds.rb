@@ -12,6 +12,6 @@ require 'faker'
     first_name: Faker::Name.name,
     last_name: Faker::GameofThrones.house,
     email: Faker::GameofThrones.city,
-    phone_number: Faker::PhoneNumber.phone_number
+    phone_number: Faker::PhoneNumber.phone_number,
   )
 end
