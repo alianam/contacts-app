@@ -1,4 +1,5 @@
 class Contact < ApplicationRecord
+  belongs_to :user
   def display_updated_time
     updated_at.strftime("%b %d, %Y")
   end

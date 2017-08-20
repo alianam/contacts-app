@@ -1,6 +1,9 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
+    # @contacts = current_user.contacts
+    # this line above does exactly the same as the line below once a contact is assigned to a user
+    @contacts = Contact.where(user_id: session[:user_id])
+    # since this will break if someone isn't logged in, redirect_to '/login' if current_user is nil
     render 'index.html.erb'
   end
 
@@ -15,7 +18,8 @@ class ContactsController < ApplicationController
       email: params[:email],
       phone_number: params[:phone_number],
       bio: params[:bio],
-      address: params[:address]
+      address: params[:address],
+      user_id: session[:user_id]
     )
     @new_contact.save
     redirect_to "/contacts/#{@new_contact.id}"
@@ -23,7 +27,11 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find_by(id: params[:id])
-    render 'show.html.erb'
+    if current_user && current_user.id == @contact.user_id
+      render 'show.html.erb'
+    else
+      redirect_to '/contacts'
+    end
   end
 
   def edit
