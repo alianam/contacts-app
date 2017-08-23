@@ -2,7 +2,12 @@ class ContactsController < ApplicationController
   def index
     # @contacts = current_user.contacts
     # this line above does exactly the same as the line below once a contact is assigned to a user
-    @contacts = Contact.where(user_id: session[:user_id])
+    if params[:group]
+      @contacts = Group.find_by(name: params[:group]).contacts.where(user_id: current_user.id)
+      # @contacts = all_contacts.where(user_id: session[:user_id])
+    else  
+      @contacts = Contact.where(user_id: session[:user_id])
+    end
     # since this will break if someone isn't logged in, redirect_to '/login' if current_user is nil
     render 'index.html.erb'
   end

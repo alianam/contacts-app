@@ -10,6 +10,7 @@
   <h3>Oh snap! It looks like you aren't logged in so you can't see any contacts.</h3>
   <h3>You should probably <a href="/login">log in.</a></h3>
 <% else %>
+  <p>Count: <%= @contacts.count %></p>
   <% @contacts.each do |contact| %>
     <p><a href="/contacts/<%= contact.id %>"><%= contact.first_name %></a></p>
     <p><%= contact.last_name %></p>

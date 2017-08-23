@@ -1,5 +1,7 @@
 class Contact < ApplicationRecord
   belongs_to :user
+  has_many :contact_groups
+  has_many :groups, through: :contact_groups
   def display_updated_time
     updated_at.strftime("%b %d, %Y")
   end

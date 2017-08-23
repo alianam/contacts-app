@@ -29,6 +29,20 @@
             <!-- <li><a href="#">Link</a></li> -->
             </li>
           </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+            <!-- <li><a href="#">Link</a></li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% Group.all.each do |group| %>
+                  <li><a href="/contacts?group=<%= group.name %>"><%= group.name.capitalize %></a></li>
+                  <li role="separator" class="divider"></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+
           <form class="navbar-form navbar-left">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
